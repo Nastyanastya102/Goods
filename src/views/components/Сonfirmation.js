@@ -8,21 +8,22 @@ import { Modal } from '../styles/Confirmation';
 export const Сonfirmation = ({ modal, item, addToCard, removeFromCard, closeModalAction, basket, discounts }) => {
   const [date, setDate] = useState();
   const saleCard = discounts.find(i => i.product[0].id === item.name);
-console.log(!!saleCard, item);
 
   const confirm = (e, del) => {
-    del
-    ? removeFromCard(item)
-    : addToCard(item, date);
-      setTimeout(() => {
-      closeModalAction() 
+    if(del){
+      removeFromCard(item)
+    } else {
+      addToCard(item, date)
+    } 
+    setTimeout(() => {
+    closeModalAction() 
     }, 0);
   };
 
   return (
     <>
-      {modal
-      ? <Modal>
+      {modal && (
+      <Modal>
           <div className="modal_content">
               <Close onClick={closeModalAction} className="close_modal">X</Close>
               <div className="item_info">
@@ -30,13 +31,12 @@ console.log(!!saleCard, item);
                 <img src={item.image} alt="product"/>
                 <span>${item.price}</span>
               </div>
-              {!!saleCard
-                ? <p className="proposition">
-                    We have COOL discount for you. Buy {saleCard.product[0].count} {saleCard.product[0].id} <br/>
-                    and get -{(saleCard.discount[0].discount * 100)}% fo {saleCard.discount[0].id}
-                  </p>
-                : null
-                }
+              {!!saleCard && (
+                <p className="proposition">
+                  We have COOL discount for you. Buy {saleCard.product[0].count} {saleCard.product[0].id} <br/>
+                  and get -{(saleCard.discount[0].discount * 100)}% fo {saleCard.discount[0].id}
+                </p>
+              )}
               {(item.name in basket)
               ? <>
                   <h3>You already have {item.name} in your basket</h3>
@@ -53,8 +53,7 @@ console.log(!!saleCard, item);
 
           </div>
         </Modal>
-      : null
-      }
+      )}
     </>
   )
 };

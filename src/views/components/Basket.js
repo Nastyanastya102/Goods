@@ -17,14 +17,11 @@ const Basket = ({ basket, sum, minus, plus, close, removeFromCard }) => (
         <li>Delivery day</li>
         <li></li>
       </ul>
-      { Object.keys(basket).length
-      ? <>
+      { Object.keys(basket).length ? (
+        <>
           {Object.entries(basket).map( ([key, value]) => (
-              <ul key={key} className="shoping_card">
-                            {value.offers
-              ? <span className="sale">Offer</span>
-              : null
-              }
+            <ul key={key} className="shoping_card">
+              { value.offers && <span className="sale">Offer</span> }
               <li><img src={value.image} alt="produtc"/></li>
               <li>{key}</li>
               <li>
@@ -49,7 +46,9 @@ const Basket = ({ basket, sum, minus, plus, close, removeFromCard }) => (
             Total: {sum}
           </span>
         </>
-      : <div className="empty_basket">Your basket is empty</div>
+      ) : (  
+        <div className="empty_basket">Your basket is empty</div> 
+      )
       }
     </div>
   </BouhtItem>

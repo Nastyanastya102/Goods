@@ -12,4 +12,4 @@ export {
   Confirmation,
   Header,
   Basket
-}
+};

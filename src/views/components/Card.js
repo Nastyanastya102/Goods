@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 
 import { CardImage, CardItem, CardButton } from '../styles/Card';
 
-const Card = ({ shop, openModalAction }) => {
-  return (
+const Card = ({ shop, openModalAction }) => (
   <>
-    {shop
-    ? shop.map( (item, index) => (
+    {shop ? (
+      shop.map( (item, index) => (
         <CardItem key={index}>
           <CardImage src={item.image} alt={item.name} />
           <h3>{item.name}</h3>
@@ -16,11 +15,11 @@ const Card = ({ shop, openModalAction }) => {
           <CardButton onClick={() => openModalAction(item)}>Add to Cart</CardButton>
         </CardItem>
       ))
-    : <p>Sorry, any goods for you</p>
-    }
+    ) : (
+      <p>Sorry, any goods for you</p>
+    )}
   </>
-  )
-};
+);
 
 Card.propTypes = {
   openModalAction: PropTypes.func.isRequired,

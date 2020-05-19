@@ -14,16 +14,11 @@ const Header = ({  total }) => {
       </button>
       <h1>Shopping List</h1>
       <h2>Never put off till tomorrow<br/>what you can buy today!</h2>
-      {
-        basket
-        ? <Basket close={setBasket}/>
-        : null     
-      }
+      { basket && <Basket close={setBasket}/> }
   </HeaderStyle>
   )
 };
   
-
 Header.propTypes = {
   total: PropTypes.number.isRequired
 };

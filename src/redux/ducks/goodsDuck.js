@@ -1,8 +1,8 @@
 import { takeEvery, put, all } from 'redux-saga/effects';
-import { delItem, addItem, minusItem, plusItem } from '../../helpers';
+import { delItem, addItem, minusItem, plusItem } from '../../reduxHelpers';
 
-const GET_PRODUCTS_URL = 'http://localhost:8000/products';
-const GET_DISCOUNTS_URL = 'http://localhost:8000/discounts';
+const GET_PRODUCTS_URL = '/products';
+const GET_DISCOUNTS_URL = '/discounts';
 
 export const FETCH_PRODUCTS_PENDING = 'goods/goodsApp/FETCH_PRODUCTS_PENDING';
 export const FETCH_PRODUCTS_SUCCESS = 'goods/goodsApp/FETCH_PRODUCTS_SUCCESS';
@@ -120,8 +120,8 @@ export const fetchData = async (url) => {
 export function* watchWork() {
   try {
     const data = yield all([
-      fetchData(GET_PRODUCTS_URL),
-      fetchData(GET_DISCOUNTS_URL)
+      fetchData(`http://localhost:8000${GET_PRODUCTS_URL}`),
+      fetchData(`http://localhost:8000${GET_DISCOUNTS_URL}`)
     ]);
     yield put({
       type: FETCH_PRODUCTS_SUCCESS,
