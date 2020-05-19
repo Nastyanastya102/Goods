@@ -6,7 +6,9 @@ export const HeaderStyle = styled.header`
       background-color: transparent;
       border: 0;
       position: fixed;
+      z-index: 300;
       top: 2%;
+      outline: none;
     }
     h1 {
       text-align: center;
@@ -32,7 +34,7 @@ export const HeaderStyle = styled.header`
     img {
       width: 40px;
     }
-    span {
+    .basket {
     height: 1.2rem;
     width: 1.2rem;
     font-size: .7rem;

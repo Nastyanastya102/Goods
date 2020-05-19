@@ -2,16 +2,14 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import Card from '../components/Card';
-import { addToCard, removeFromCard } from '../../redux/ducks/goodsDuck';
+import { openModalAction } from '../../redux/ducks/goodsDuck';
 
-const mapStateToProps = ({ goodsApp: { shop, basket } }) => ({
-  shop,
-  basket
+const mapStateToProps = ({ goodsApp: { shop } }) => ({
+  shop
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  addToCard,
-  removeFromCard
+  openModalAction
 }, dispatch);
 
 export default connect(

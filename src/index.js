@@ -10,7 +10,7 @@ const store = configureStore();
 
 const app = (
   <React.StrictMode>
-     <GlobalStyle />
+    <GlobalStyle />
     <Provider store={store}>
       <App />
     </Provider>

@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import PopUp from '../components/PopUp';
-import { addToCard, removeFromCard } from '../../redux/ducks/goodsDuck';
+import Basket from '../components/Basket';
+import { minus, plus, removeFromCard } from '../../redux/ducks/goodsDuck';
 
 const mapStateToProps = ({ goodsApp: { basket, sum } }) => ({
   basket,
@@ -10,11 +10,12 @@ const mapStateToProps = ({ goodsApp: { basket, sum } }) => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  addToCard,
+  minus,
+  plus, 
   removeFromCard
 }, dispatch);
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(PopUp);
+)(Basket);

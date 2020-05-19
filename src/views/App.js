@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import Card from './containres/Card';
-import Header from './containres/Header';
-import PopUp from './containres/PopUp';
+import { Cards, Header } from './components';
 
 const App = ({ fetchProductsPending }) => {
 
@@ -14,14 +12,13 @@ const App = ({ fetchProductsPending }) => {
   return (
     <>
       <Header/>
-      <Card/>
-      <PopUp/>
+      <Cards/>
     </>
   );
 }
 
 App.propTypes = {
-  fetchProductsPending: PropTypes.func
+  fetchProductsPending: PropTypes.func.isRequired
 };
 
 export default App;

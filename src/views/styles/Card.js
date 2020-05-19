@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const CardWrapper = styled.section`
+  position: relative;
   font-family: 'DM Mono', monospace;
   background-color: #fff;
   text-align: center;
@@ -42,16 +43,16 @@ export const CardItem = styled.div`
 
 export const CardButton = styled.button`
   border: none;
-  background: ${props => props.removed ? '#1f1f1f' : '#e55'};
+  background: #e55;
   color: #fff;
   padding: .7rem;
   width: 80%;
-  margin: 3% auto;
+  margin: 5% auto;
   outline: none;
-  cursor: ${props => props.removed ? '' : 'pointer'} ;
+  cursor: pointer;
     :hover {
-      background: ${props => props.removed ? '#1f1f1f' : '#ccc'};
-      color:${props => props.removed ? '#fff' : '#e55'};
+      background: #ccc;
+      color: #e55;
     }
 `;
 export const CardImage = styled.img`
