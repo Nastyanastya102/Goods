@@ -1,3 +1,17 @@
+export const getWeek = (dt) => {
+  let dateNow; 
+  if (dt) {
+    dateNow = new Date(dt);
+  } else {
+    dateNow = new Date();
+  } 
+  dateNow.setHours(0, 0, 0, 0)
+  dateNow.setDate(dateNow.getDate() + 3 - (dateNow.getDay() + 6) % 7);
+  const week = new Date(dateNow.getFullYear(), 0, 4);
+  return 1 + Math.round(((dateNow.getTime() - week.getTime()) / 86400000
+  - 3 + (week.getDay() + 6) % 7) / 7);
+};
+
 export const findDiscount = (state, action) => {
   const { payload } = action;
   const { discounts } = state;
@@ -21,8 +35,7 @@ const totalSum = (state) => {
 
 const setDiscount = (state, item, action) => {
   const { basket } = state;
-
-  if (item.product[0].id in basket && item.discount[0].id in basket) {
+  if (item.product[0].id in basket && item.discount[0].id in basket && getWeek() === getWeek(state.basket[action.payload.name].delivery)) {
     const much = basket[item.product[0].id].qnt / item.product[0].count;
     const dcnt = (basket[item.discount[0].id].price * item.discount[0].discount * Math.floor(much));
     const sale = basket[item.discount[0].id].qnt * basket[item.discount[0].id].price;
@@ -38,3 +51,4 @@ const setDiscount = (state, item, action) => {
   }
   return state;
 };
+

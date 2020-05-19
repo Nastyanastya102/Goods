@@ -1,10 +1,9 @@
-import { findDiscount } from './helpers';
+import { findDiscount, getWeek } from './helpers';
 
 export const addItem = (state, action) => {
   const { payload, date } = action;
   const { basket, sum, total, discounts } = state;
   const item = discounts.find(i => i.product[0].id === payload.name);
-
   const newState = { 
     ...state, 
     basket: {

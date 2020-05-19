@@ -8,7 +8,7 @@ import { Modal } from '../styles/Confirmation';
 export const Сonfirmation = ({ modal, item, addToCard, removeFromCard, closeModalAction, basket, discounts }) => {
   const [date, setDate] = useState();
   const saleCard = discounts.find(i => i.product[0].id === item.name);
-
+  
   const confirm = (e, del) => {
     if(del){
       removeFromCard(item)
