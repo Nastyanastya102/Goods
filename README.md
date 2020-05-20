@@ -15,11 +15,11 @@ Builds the app for production to the build folder.
 
 ## Learn More
 
- Main
+### Main
 ![alt text](screenshots/main.png "Header Page")
-Goods
+### Goods
 ![alt text](screenshots/goods.png "Page with goods")
-Modal
+### Modal
 ![alt text](screenshots/confirm.png "Modal icon with confirmation")
-Basket
+### Basket
 ![alt text](screenshots/basket.png "Basket")
