@@ -1,4 +1,4 @@
-import { findDiscount, getWeek } from './helpers';
+import { findDiscount } from './helpers';
 
 export const addItem = (state, action) => {
   const { payload, date } = action;

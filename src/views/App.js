@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { Cards, Header } from './components';
 
 const App = ({ fetchProductsPending }) => {
-
   useEffect(() => {
     fetchProductsPending();  
   }, [fetchProductsPending]);
